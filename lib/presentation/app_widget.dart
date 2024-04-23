@@ -30,11 +30,11 @@ class _AppWidgetState extends State<AppWidget> {
         builder: (context, state) {
           Color unselectedColor = Style.lightPink;
           Color selectedColor = Style.blushPink;
-          if (state.currentIndex == 4) {
+          if (state.currentIndex == 2) {
             unselectedColor = Style.fern.withOpacity(.6);
             selectedColor = Style.fern;
           }
-          if (state.currentIndex == 2) {
+          if (state.currentIndex == 1) {
             unselectedColor = Colors.red.withOpacity(.6);
             selectedColor = Colors.red;
           }
