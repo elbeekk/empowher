@@ -57,40 +57,25 @@ class HomePage extends StatelessWidget {
                 circleRadius: MediaQuery.sizeOf(context).width * 0.082,
                 storyItemList: [
                   StoryItem(
-                    name: 'Sevara',
+                    name: 'Saida',
                     thumbnail: const NetworkImage(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5OEBamrwmo0HT3txKwEe-QDgqWnUx_QARTww8lgM0GA&s"),
-                    stories: [],
+                        "https://cdn1.img.sputniknews.uz/img/07e7/08/11/37955488_214:0:980:766_1920x0_80_0_0_880afe60aade7ad75216946523aa943b.jpg"),
+                    stories: [
+                      Scaffold(
+                        body: Image.network("https://pbs.twimg.com/media/DKvMoqCXoAAhSWz.jpg:large"),
+                      )
+                    ],
                   ),
                   StoryItem(
-                    name: 'Sevara',
+                    name: 'Anna',
                     thumbnail: const NetworkImage(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5OEBamrwmo0HT3txKwEe-QDgqWnUx_QARTww8lgM0GA&s"),
-                    stories: [],
-                  ),
-                  StoryItem(
-                    name: 'Sevara',
-                    thumbnail: const NetworkImage(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5OEBamrwmo0HT3txKwEe-QDgqWnUx_QARTww8lgM0GA&s"),
-                    stories: [],
-                  ),
-                  StoryItem(
-                    name: 'Sevara',
-                    thumbnail: const NetworkImage(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5OEBamrwmo0HT3txKwEe-QDgqWnUx_QARTww8lgM0GA&s"),
-                    stories: [],
-                  ),
-                  StoryItem(
-                    name: 'Sevara',
-                    thumbnail: const NetworkImage(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5OEBamrwmo0HT3txKwEe-QDgqWnUx_QARTww8lgM0GA&s"),
-                    stories: [],
-                  ),
-                  StoryItem(
-                    name: 'Sevara',
-                    thumbnail: const NetworkImage(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5OEBamrwmo0HT3txKwEe-QDgqWnUx_QARTww8lgM0GA&s"),
-                    stories: [],
+                        "https://276709.selcdn.ru/proektoria/new/professions/2020/03/24/b2eb7349035754953b57a32e2841bda5/2019-12-07_10-28-25.jpg"),
+                    stories: [
+                      Scaffold(
+                        backgroundColor: Colors.black,
+                        body: Center(child: Image.network("https://ih1.redbubble.net/image.1688371676.5597/raf,750x1000,075,t,000000:44f0b734a5.jpg")),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -108,16 +93,11 @@ class HomePage extends StatelessWidget {
                               color: Style.peachyPink,
                               fontWeight: FontWeight.w500),
                         ),
-                        Text(
-                          'SEE ALL',
-                          style: TextStyle(
-                              color: Style.peachyPink.withOpacity(.6)),
-                        )
                       ],
                     ),
                   ),
                   CarouselSlider.builder(
-                    itemCount: 5,
+                    itemCount: 2,
                     options: CarouselOptions(
                         autoPlay: true,
                         height: MediaQuery.sizeOf(context).height * 0.2,
@@ -145,7 +125,7 @@ class HomePage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Meet up",
+                                      "Feminists Meet Up",
                                       style: TextStyle(
                                         color: Style.blushPink,
                                         fontWeight: FontWeight.w500,
@@ -163,7 +143,7 @@ class HomePage extends StatelessWidget {
                                           size: 15,
                                         ),
                                         Text(
-                                          'Mashhura',
+                                          'Said Mirziyoyeva',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Style.peachyPink
@@ -183,7 +163,7 @@ class HomePage extends StatelessWidget {
                                           size: 15,
                                         ),
                                         Text(
-                                          '15:00',
+                                          '12:00',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Style.peachyPink
@@ -203,7 +183,7 @@ class HomePage extends StatelessWidget {
                                           size: 15,
                                         ),
                                         Text(
-                                          'Tashkent',
+                                          'Fergana',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Style.peachyPink
@@ -237,7 +217,7 @@ class HomePage extends StatelessWidget {
                                             padding: const EdgeInsets.all(1),
                                             child: const FittedBox(
                                               child: Text(
-                                                "February",
+                                                "MAY",
                                                 style: TextStyle(
                                                     color: Colors.white),
                                               ),
@@ -322,6 +302,13 @@ class HomePage extends StatelessWidget {
                                               const Icon(
                                                 Icons.dark_mode_outlined,
                                                 color: Colors.white,
+                                                size: 50,
+                                              ),
+                                            if ((DateTime.now().hour < 19 &&
+                                                DateTime.now().hour > 5))
+                                              const Icon(
+                                                Icons.light_mode_outlined,
+                                                color: Colors.yellow,
                                                 size: 50,
                                               ),
                                             Column(

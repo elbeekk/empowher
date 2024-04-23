@@ -46,6 +46,11 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   carousel_slider: ^4.2.1
   intl: ^0.19.0
+  shared_preferences: ^2.2.3
+  vibration: ^1.8.4
+  permission_handler: ^11.3.1
+  flutter_contacts: ^1.1.7+1
+  geolocator: ^11.0.0
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +64,14 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   build_runner: ^2.4.9
   auto_route_generator: ^8.0.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+
+  image_path: "assets/logo.jpg"
+  web:
+    generate: true
+    image_path: "assets/logo.jpg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

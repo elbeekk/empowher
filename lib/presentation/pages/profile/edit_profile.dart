@@ -1,8 +1,30 @@
+import 'package:empowher/domain/models/class/user.dart';
+import 'package:empowher/domain/services/local_storage.dart';
 import 'package:empowher/presentation/style/style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class EditProfilePage extends StatelessWidget {
+class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
+
+  @override
+  State<EditProfilePage> createState() => _EditProfilePageState();
+}
+
+class _EditProfilePageState extends State<EditProfilePage> {
+  TextEditingController? lNameCon;
+  TextEditingController? fNameCon;
+  TextEditingController? bioCon;
+
+  @override
+  void initState() {
+    lNameCon =
+        TextEditingController(text: LocalStorage.getMe()?.lastName ?? '');
+    fNameCon =
+        TextEditingController(text: LocalStorage.getMe()?.firstName ?? '');
+    bioCon = TextEditingController(text: LocalStorage.getMe()?.bio ?? '');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,19 +33,26 @@ class EditProfilePage extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        // backgroundColor: Colors.blue,
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Navigator.maybePop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Style.fern,
+              )),
           shadowColor: Style.fern.withOpacity(.5),
           elevation: 2,
           centerTitle: true,
           title: Text(
-            'Profile',
-            style: TextStyle(color: Style.fern),
+            'Edit Profile',
+            style: TextStyle(color: Style.fern,fontWeight: FontWeight.bold),
           ),
         ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 const SizedBox(
@@ -52,6 +81,7 @@ class EditProfilePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: TextField(
                     cursorColor: Style.fern,
+                    controller: fNameCon,
                     cursorWidth: 1,
                     decoration: InputDecoration(
                       hintText: 'Ism',
@@ -76,6 +106,7 @@ class EditProfilePage extends StatelessWidget {
                   child: TextField(
                     cursorColor: Style.fern,
                     cursorWidth: 1,
+                    controller: lNameCon,
                     decoration: InputDecoration(
                       hintText: 'Familiya',
                       hintStyle: TextStyle(color: Style.fern),
@@ -98,6 +129,7 @@ class EditProfilePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: TextField(
                     cursorColor: Style.fern,
+                    controller: bioCon,
                     cursorWidth: 1,
                     decoration: InputDecoration(
                       hintText: 'Bio',
@@ -115,6 +147,44 @@ class EditProfilePage extends StatelessWidget {
                         borderSide: BorderSide(color: Style.fern),
                       ),
                     ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Style.fern.withOpacity(.2),
+                              elevation: 1,
+                              shadowColor: Style.fern.withOpacity(.1),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                          onPressed: () {
+                            LocalStorage.setMe(UserModel(
+                              bio: bioCon?.text.trim() ?? '',
+                              firstName: fNameCon?.text.trim() ?? '',
+                              lastName: lNameCon?.text.trim() ?? '',
+                            ));
+
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                backgroundColor: Style.fern.withOpacity(.9),
+                                content: Text(
+                                  "Saqlandi",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Saqlash",
+                            style: TextStyle(color: Style.fern),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

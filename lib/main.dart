@@ -1,9 +1,12 @@
+import 'package:empowher/domain/services/local_storage.dart';
 import 'package:empowher/presentation/app_widget.dart';
 import 'package:flutter/material.dart';
 
 
 void main(){
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  LocalStorage.init();
+  runApp(const MyApp());
 }
 
 
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AppWidget(),
     );
