@@ -15,6 +15,14 @@ class LocalStorage {
     }
   }
 
+  static void removeMe() async {
+    if (_pref != null) {
+      await _pref?.remove(
+        'me',
+      );
+    }
+  }
+
   static UserModel? getMe() {
     if (_pref != null) {
       final raw = _pref?.getString('me');
@@ -38,7 +46,9 @@ class LocalStorage {
       return raw ?? true;
     }
     return true;
-  }  static void setNotifications(bool value) async {
+  }
+
+  static void setNotifications(bool value) async {
     if (_pref != null) {
       await _pref?.setBool('notification', value);
     }
@@ -51,6 +61,7 @@ class LocalStorage {
     }
     return true;
   }
+
   static void setSharing(bool value) async {
     if (_pref != null) {
       await _pref?.setBool('location', value);
@@ -63,7 +74,9 @@ class LocalStorage {
       return raw ?? false;
     }
     return false;
-  }  static void setContacts(List<String> contacts) async {
+  }
+
+  static void setContacts(List<String> contacts) async {
     if (_pref != null) {
       await _pref?.setStringList('contacts', contacts);
     }

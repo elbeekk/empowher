@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "670619100218",
+    "project_id": "empowher-d3e13",
+    "storage_bucket": "empowher-d3e13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670619100218:android:db01b750b9ad3d7e38c103",
+        "android_client_info": {
+          "package_name": "com.mash.empowher"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgTlu_r8_RfnmOg61tulRUYsx0mVYE5CQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

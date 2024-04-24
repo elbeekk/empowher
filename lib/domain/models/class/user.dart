@@ -5,12 +5,16 @@ class UserModel {
   String? lastName;
   String? image;
   String? bio;
+  String? uid;
+  String? email;
 
   UserModel({
     this.firstName,
     this.lastName,
     this.image,
     this.bio,
+    this.uid,
+    this.email,
   });
 
   UserModel copyWith({
@@ -18,12 +22,16 @@ class UserModel {
     String? lastName,
     String? image,
     String? bio,
+    String? uid,
+    String? email,
   }) =>
       UserModel(
         firstName: firstName ?? this.firstName,
         lastName: lastName ?? this.lastName,
         image: image ?? this.image,
         bio: bio ?? this.bio,
+        uid: uid ?? this.uid,
+        email: email ?? this.email,
       );
 
   factory UserModel.fromRawJson(String str) => UserModel.fromJson(json.decode(str));
@@ -35,6 +43,8 @@ class UserModel {
     lastName: json["lastName"],
     image: json["image"],
     bio: json["bio"],
+    uid: json["uid"],
+    email: json["email"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -42,5 +52,7 @@ class UserModel {
     "lastName": lastName,
     "image": image,
     "bio": bio,
+    "uid": uid,
+    "email": email,
   };
 }

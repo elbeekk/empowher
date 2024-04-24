@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:stories_for_flutter/stories_for_flutter.dart';
 import '../../style/style.dart';
+import '../chat/chats_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,7 +38,13 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => const ChatsPage(),
+                  ));
+            },
             icon: Icon(
               Icons.chat_outlined,
               color: Style.peachyPink,
@@ -62,7 +69,8 @@ class HomePage extends StatelessWidget {
                         "https://cdn1.img.sputniknews.uz/img/07e7/08/11/37955488_214:0:980:766_1920x0_80_0_0_880afe60aade7ad75216946523aa943b.jpg"),
                     stories: [
                       Scaffold(
-                        body: Image.network("https://pbs.twimg.com/media/DKvMoqCXoAAhSWz.jpg:large"),
+                        body: Image.network(
+                            "https://pbs.twimg.com/media/DKvMoqCXoAAhSWz.jpg:large"),
                       )
                     ],
                   ),
@@ -73,7 +81,9 @@ class HomePage extends StatelessWidget {
                     stories: [
                       Scaffold(
                         backgroundColor: Colors.black,
-                        body: Center(child: Image.network("https://ih1.redbubble.net/image.1688371676.5597/raf,750x1000,075,t,000000:44f0b734a5.jpg")),
+                        body: Center(
+                            child: Image.network(
+                                "https://ih1.redbubble.net/image.1688371676.5597/raf,750x1000,075,t,000000:44f0b734a5.jpg")),
                       )
                     ],
                   ),
@@ -143,7 +153,7 @@ class HomePage extends StatelessWidget {
                                           size: 15,
                                         ),
                                         Text(
-                                          'Said Mirziyoyeva',
+                                          'Saida Mirziyoyeva',
                                           style: TextStyle(
                                               fontSize: 12,
                                               color: Style.peachyPink

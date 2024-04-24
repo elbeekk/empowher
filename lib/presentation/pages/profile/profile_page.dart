@@ -1,4 +1,5 @@
 import 'package:empowher/domain/services/local_storage.dart';
+import 'package:empowher/presentation/pages/auth/auth_page.dart';
 import 'package:empowher/presentation/pages/profile/edit_profile.dart';
 import 'package:empowher/presentation/pages/profile/settings.dart';
 import 'package:empowher/presentation/style/style.dart';
@@ -27,7 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
           centerTitle: true,
           title: Text(
             'Profile',
-            style: TextStyle(color: Style.fern,fontWeight: FontWeight.bold),
+            style: TextStyle(color: Style.fern, fontWeight: FontWeight.bold),
           ),
         ),
         body: Center(
@@ -115,7 +116,11 @@ class _ProfilePageState extends State<ProfilePage> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
                           onPressed: () {
-                            Navigator.push(context, CupertinoPageRoute(builder: (context) => SettingsPage(),));
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => const SettingsPage(),
+                                ));
                           },
                           child: Text(
                             "Settings",
@@ -126,7 +131,36 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ),
-
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Style.fern.withOpacity(.2),
+                              elevation: 1,
+                              shadowColor: Style.fern.withOpacity(.1),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                          onPressed: () {
+                            LocalStorage.removeMe();
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => const AuthPage(),
+                                ),
+                                (route) => false);
+                          },
+                          child: Text(
+                            "Logout",
+                            style: TextStyle(color: Style.fern),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

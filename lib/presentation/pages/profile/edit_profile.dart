@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:empowher/domain/models/class/user.dart';
 import 'package:empowher/domain/services/local_storage.dart';
 import 'package:empowher/presentation/style/style.dart';
@@ -47,7 +48,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           centerTitle: true,
           title: Text(
             'Edit Profile',
-            style: TextStyle(color: Style.fern,fontWeight: FontWeight.bold),
+            style: TextStyle(color: Style.fern, fontWeight: FontWeight.bold),
           ),
         ),
         body: Padding(
@@ -77,6 +78,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     size: 30,
                   ),
                 ),
+                if (LocalStorage.getMe()?.email != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Text(
+                      LocalStorage.getMe()?.email ?? "",
+                      style: TextStyle(color: Style.fern),
+                    ),
+                  ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: TextField(
@@ -161,25 +170,38 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               shadowColor: Style.fern.withOpacity(.1),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
-                          onPressed: () {
+                          onPressed: () async {
                             LocalStorage.setMe(UserModel(
                               bio: bioCon?.text.trim() ?? '',
                               firstName: fNameCon?.text.trim() ?? '',
                               lastName: lNameCon?.text.trim() ?? '',
+                              uid: LocalStorage.getMe()?.uid,
+                              email: LocalStorage.getMe()?.email,
                             ));
-
+                            try {
+                              await FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(LocalStorage.getMe()?.uid ?? "")
+                                  .update({
+                                "bio": bioCon?.text.trim() ?? "",
+                                "firstName": fNameCon?.text.trim() ?? "",
+                                "lastName": lNameCon?.text.trim() ?? '',
+                              });
+                            } catch (e) {
+                              print("${LocalStorage.getMe()?.uid} $e");
+                            }
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 backgroundColor: Style.fern.withOpacity(.9),
-                                content: Text(
-                                  "Saqlandi",
+                                content: const Text(
+                                  "Saved",
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
                             );
                           },
                           child: Text(
-                            "Saqlash",
+                            "Save",
                             style: TextStyle(color: Style.fern),
                           ),
                         ),

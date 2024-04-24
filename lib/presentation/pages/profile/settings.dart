@@ -40,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Vibdation for disabled users",
+                    "Vibration for disabled users",
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
