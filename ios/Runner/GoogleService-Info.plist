@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBqT9wHZA6qYPCJ3CWek4aF49L6hB4Vltk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>670619100218</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mash.empowher</string>
+	<key>PROJECT_ID</key>
+	<string>empowher-d3e13</string>
+	<key>STORAGE_BUCKET</key>
+	<string>empowher-d3e13.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:670619100218:ios:415a03c1c01d6a6b38c103</string>
+</dict>
+</plist>

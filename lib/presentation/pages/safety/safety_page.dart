@@ -130,26 +130,37 @@ class _SafetyPageState extends State<SafetyPage> {
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(10)),
-                                      content: ListView.builder(
-                                        itemCount: smth.length,
-                                        itemBuilder: (context, index) {
-                                          final current = smth[index];
-                                          return ListTile(
-                                            onTap: () {
-                                              if (selected.contains(current)) {
-                                                selected.remove(current);
-                                              } else {
-                                                selected.add(current);
-                                              }
-                                              setState1(() {});
-                                            },
-                                            leading: Icon(
-                                                selected.contains(current)
-                                                    ? Icons.circle
-                                                    : Icons.circle_outlined),
-                                            title: Text(current.displayName),
-                                          );
-                                        },
+                                      content: SizedBox(
+                                        height: MediaQuery.sizeOf(context).height*0.3,
+                                        width: MediaQuery.sizeOf(context).width*0.8,
+                                        child: ListView.builder(
+                                          itemCount: smth.length,
+                                          shrinkWrap: true,
+                                          itemBuilder: (context, index) {
+                                            final current = smth[index];
+                                            return Row(
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    onTap: () {
+                                                      if (selected.contains(current)) {
+                                                        selected.remove(current);
+                                                      } else {
+                                                        selected.add(current);
+                                                      }
+                                                      setState1(() {});
+                                                    },
+                                                    leading: Icon(
+                                                        selected.contains(current)
+                                                            ? Icons.circle
+                                                            : Icons.circle_outlined),
+                                                    title: Text(current.displayName),
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        ),
                                       ),
                                       actions: [
                                         Row(
