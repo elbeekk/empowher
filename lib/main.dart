@@ -9,7 +9,7 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocalStorage.init();
-  Gemini.init(apiKey: 'AIzaSyDDbU5JZSM14wzxAQfYQyFNRE_M7');
+  Gemini.init(apiKey: 'AIzaSyDDbU5JZSM14wzxAQfYQyFNRE_M7-9FK30',);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
